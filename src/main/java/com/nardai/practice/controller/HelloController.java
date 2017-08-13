@@ -4,7 +4,8 @@ package com.nardai.practice.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/v1/secret")
+@RestController
+@RequestMapping("/v1/user")
 public class HelloController {
 
     @RequestMapping("/greetings")
