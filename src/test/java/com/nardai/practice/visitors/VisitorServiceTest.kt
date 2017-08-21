@@ -10,7 +10,7 @@ internal class VisitorServiceTest {
     @Test
     fun getList() {
         val service: VisitorService = VisitorService()
-        val result = service.getList()
+        val result = service.getDefaultList()
 
         assertEquals("Default name should be Rick", "Rick", result.get(0).name)
     }
