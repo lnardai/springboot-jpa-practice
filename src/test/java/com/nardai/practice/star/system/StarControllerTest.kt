@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 
 @RunWith(SpringRunner::class)
-@ContextConfiguration("file:src/test/resources/spring-root-context-test.xml")
+@ContextConfiguration("classpath*:spring-root-context-test.xml")
 @WebMvcTest
 class StarControllerTest {
 
