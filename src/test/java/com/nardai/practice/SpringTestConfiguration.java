@@ -8,7 +8,6 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @Configuration
 public class SpringTestConfiguration {
 
-
 	//needed for mocking SpringOauth2 configuration
 	@Bean
 	public ResourceServerTokenServices remoteTokenServices() {

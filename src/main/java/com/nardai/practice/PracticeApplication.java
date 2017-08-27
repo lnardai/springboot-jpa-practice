@@ -3,26 +3,30 @@ package com.nardai.practice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@EnableOAuth2Sso
-@EnableWebSecurity
-public class PracticeApplication {
+public class PracticeApplication implements WebMvcConfigurer {
 
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-				.antMatcher("/v1")
-				.authorizeRequests()
-				.antMatchers("/", "/login**", "/webjars/**", "/swagger**")
-				.permitAll()
-				.anyRequest()
-				.authenticated();
-	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(PracticeApplication.class, args);
-	}
+    /*For custom swagger UI, so csrf can be added */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html**").addResourceLocations("classpath:/static/swagger-ui.html");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
+
+    public static void main(String[] args) {
+        SpringApplication.run(PracticeApplication.class, args);
+    }
 }
