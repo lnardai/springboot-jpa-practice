@@ -29,37 +29,48 @@
 	<script src='webjars/springfox-swagger-ui/springfox.js' type='text/javascript'></script>
 
 	<script type="text/javascript">
-	function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-	 $(function () {
-			var csrfCookie = getCookie("XSRF-TOKEN");
-			alert("Using custom swagger-ui with" + csrfCookie)
-
-			var csrfCookieAuth = new SwaggerClient.ApiKeyAuthorization("X-XSRF-TOKEN", csrfCookie, "header");
-			swaggerUi.api.clientAuthorizations.add("X-XSRF-TOKEN", csrfCookieAuth);
-
-			window.swaggerUi.load();
-
-			function log() {
-				if ('console' in window) {
-					console.log.apply(console, arguments);
+		function getCookie(cname) {
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
 				}
 			}
-	});
+			return "";
+		}
+
+		$(function () {
+			var csrfCookie = getCookie("XSRF-TOKEN");
+
+
+
+			//setTimeout(function () {
+				var csrfCookieAuth = new SwaggerClient.ApiKeyAuthorization("X-XSRF-TOKEN", csrfCookie, "header");
+				swaggerUi.api.clientAuthorizations.add("X-XSRF-TOKEN", csrfCookieAuth);
+				swaggerUi.api.clientAuthorizations.add("Access-Control-Allow-Origin", "*");
+				swaggerUi.api.clientAuthorizations.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+
+				window.swaggerUi.load();
+			//}, 3000);
+
+		});
+
+
+		//		 var send = XMLHttpRequest.prototype.send;
+		//
+		//		 XMLHttpRequest.prototype.send = function(data) {
+		//			 var token = getCookie('XSRF-TOKEN');
+		//			 if(token) {
+		//				 this.setRequestHeader('X-CSRF-TOKEN', token);
+		//			 }
+		//			 return send.apply(this, arguments);
+		//		 };
 
 	</script>
 </head>
@@ -67,7 +78,7 @@
 <body class="swagger-section">
 <div id='header'>
 	<div class="swagger-ui-wrap">
-		<a id="logo" href="http://swagger.io"><img class="logo__img" alt="swagger" height="30" width="30" src="webjars/springfox-swagger-ui/images/logo_small.png" /><span class="logo__title">Custom swagger-ui</span></a>
+		<a id="logo" href="http://swagger.io"><img class="logo__img" alt="swagger" height="30" width="30" src="webjars/springfox-swagger-ui/images/logo_small.png"/><span class="logo__title">Custom swagger-ui</span></a>
 		<form id='api_selector'>
 			<div class='input'>
 				<select id="select_baseUrl" name="select_baseUrl"/>
