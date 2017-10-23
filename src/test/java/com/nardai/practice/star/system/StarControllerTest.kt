@@ -1,5 +1,6 @@
 package com.nardai.practice.star.system
 
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -25,6 +26,7 @@ class StarControllerTest {
 
     @Test
     @WithMockUser
+    @Ignore
     @Throws(Exception::class)
     fun getMockedUserData() {
         this.mvc.perform(MockMvcRequestBuilders.get("/v1/user/name")
