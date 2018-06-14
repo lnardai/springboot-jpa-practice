@@ -1,25 +1,20 @@
-apply plugin: 'java'
-apply plugin: 'kotlin'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: "kotlin-jpa"
+plugins {
+  id "org.jetbrains.kotlin.jvm" version "1.2.50"
+  id "org.jetbrains.kotlin.plugin.jpa" version "1.2.50"
+  id 'org.springframework.boot' version '2.0.2.RELEASE'
+}
 
 
-buildscript {
-    ext.kotlin_version = '1.1.3-2'
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: "kotlin-jpa"
     ext {
-        springBootVersion = '2.0.0.M1'
-    }
-    repositories {
-        mavenCentral()
-        maven { url "https://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/milestone" }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
+        kotlin_version = '1.2.50'
+        springBootVersion = '2.0.2.RELEASE'
     }
 }
 
@@ -52,17 +47,11 @@ dependencies {
     compile("com.h2database:h2")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0")
 
-    compile('org.springframework.security.oauth:spring-security-oauth2')
-    compile('org.webjars:angularjs:1.4.1')
-    compile('org.webjars:jquery:2.1.1')
-    compile('org.webjars:bootstrap:3.2.0')
-    compile('org.webjars:webjars-locator')
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.3.3.RELEASE'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
-
-
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile "com.nhaarman:mockito-kotlin"
