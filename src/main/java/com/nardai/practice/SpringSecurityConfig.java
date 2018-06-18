@@ -23,11 +23,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 //.loginPage("/login.html")
-                .defaultSuccessUrl("/index.html",true)
+                .defaultSuccessUrl("/index",true)
 //                .successHandler(successHandler())
                 .failureUrl("/login.html?error=true")
                 .and()
-                .logout().logoutSuccessUrl("/login.html");
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login");
     }
 
     @Bean
