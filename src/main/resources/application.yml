@@ -1,9 +1,9 @@
-server:
-  port: 8443
-  ssl.key-store: security/keystore.p12
-  ssl.key-store-password: Krumpli1
-  ssl.keyStoreType: PKCS12
-  ssl.keyAlias: tomcat
+#server:
+#  port: 8443
+#  ssl.key-store: security/keystore.p12
+#  ssl.key-store-password: Krumpli1
+#  ssl.keyStoreType: PKCS12
+#  ssl.keyAlias: tomcat
 
 spring:
   datasource:
@@ -15,21 +15,3 @@ spring:
     console:
       enabled: true
       path: /h2
-
-
-security:
-  oauth2:
-    client:
-      clientId: 1857573394496421
-      clientSecret: d335b4de2cfe256679d86cee4e7865da
-      accessTokenUri: https://graph.facebook.com/oauth/access_token
-      userAuthorizationUri: https://www.facebook.com/dialog/oauth
-      tokenName: oauth_token
-      authenticationScheme: query
-      clientAuthenticationScheme: form
-    resource:
-      userInfoUri: https://graph.facebook.com/me
-
-swagger:
-  oauth:
-    url: https://www.facebook.com/dialog/oath
