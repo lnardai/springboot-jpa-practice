@@ -1,9 +1,22 @@
-body {
+html, body {
+    height: 100%;
     color: white;
 }
 
-.content {
-    margin: 0 auto;
+body {
+    margin: 0;
+}
+
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
 }
 
 .logout-btn {

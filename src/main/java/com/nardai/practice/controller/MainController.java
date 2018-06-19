@@ -11,9 +11,9 @@ import com.nardai.practice.model.GameType;
 
 @Controller
 @RequestMapping("/")
-public class HelloController {
+public class MainController {
 
-    @GetMapping("/index")
+    @GetMapping({"/index", "/"})
     public ModelAndView greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,
                             @RequestParam(name="actualGame", required=false, defaultValue = "FIRST") GameType selectedGame) {
         ModelAndView mav = new ModelAndView("index");
@@ -22,10 +22,4 @@ public class HelloController {
         mav.addObject("progress", Math.abs(Math.random() * 100));
         return mav;
     }
-
-    @GetMapping("/goodbye")
-    public String goodbye() {
-        return "Goodbye!";
-    }
-
 }

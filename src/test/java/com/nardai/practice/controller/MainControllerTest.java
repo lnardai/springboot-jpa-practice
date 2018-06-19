@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 @RunWith(SpringRunner.class)
 @ContextConfiguration("file:src/test/resources/spring-root-context-test.xml")
 @WebMvcTest
-public class HelloControllerTest {
+public class MainControllerTest {
 	@Autowired
 	private MockMvc mvc;
 
