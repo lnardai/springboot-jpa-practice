@@ -22,4 +22,10 @@ public class MainController {
         mav.addObject("progress", Math.abs(Math.random() * 100));
         return mav;
     }
+
+    @GetMapping("/intro")
+    public ModelAndView introController() {
+        ModelAndView mav = new ModelAndView("intro");
+        return mav;
+    }
 }

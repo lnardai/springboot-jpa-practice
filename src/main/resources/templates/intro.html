@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="includes :: header"></head>
+
+    <script>
+        $(document).ready(function() {
+            var timer = setTimeout(function() {
+
+            window.location=window.location.protocol + "//" + window.location.host + "/index"
+        }, 90000); });
+    </script>
+
+<div th:replace="includes :: background"></div>
+    <audio loop="loop" autoplay="autoplay">
+        <source src="/sound/sw_theme.mp3" type="audio/mp3" />
+    </audio>
+
+<div id="titles"><div id="titlecontent">
+    <div>
+        <p class="intro-content-header">Star wars</p>
+        <p class="intro-content-header">Episode 6</p>
+    </div>
+    <div class="intro-content">
+        <p>Luke Skywalker has vanished. In his absence, the sinister FIRST ORDER has risen from the ashes of the
+            Empire and will not rest until Skywalker, the last Jedi, has been destroyed.</p>
+    </div>
+</div>
+</div>
+</html>
