@@ -16,4 +16,63 @@
 <div th:fragment="background">
     <div class="stars"></div>
     <div class="twinkling"></div>
-</div>>
+</div>
+
+<th:block th:fragment="menu">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/index">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('FIRST')}?active" >
+                    <a class="nav-link" href="/game1">Game1</a>
+                </li>
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('SECOND')}?active" >
+                    <a class="nav-link" href="/game2">Game2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/game3">Game3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/game4">Game4</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/game4">Game5</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/game4">Game6</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</th:block>
+
+<div th:fragment="infinity">
+
+    <div class="row flex-item">
+        <div class="column">
+            <img class="infinity-stone-medium" src="css/images/mind-stone.png"/>
+        </div>
+        <div class="column">
+            <img class="infinity-stone-medium" src="css/images/power-stone.png"/>
+        </div>
+        <div class="column">
+            <img class="infinity-stone-medium" src="css/images/souls-stone.png"/>
+        </div>
+    </div>
+
+    <div class="row flex-item">
+        <div class="column">
+            <img class="infinity-stone-medium" src="css/images/space-stone.png"/>
+        </div>
+        <div class="column">
+            <img class="infinity-stone-medium" src="css/images/time-stone.png"/>
+        </div>
+        <div class="column">
+            <img class="infinity-stone-medium" src="css/images/reality-stone.png"/>
+        </div>
+    </div>
+</div>

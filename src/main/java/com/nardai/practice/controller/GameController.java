@@ -1,20 +1,29 @@
 package com.nardai.practice.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nardai.practice.model.GameType;
+import com.nardai.practice.model.SoulsStone;
+
 @Controller
-@RequestMapping("/games")
+@RequestMapping("/")
 public class GameController {
 
     @GetMapping("/game1")
     public ModelAndView getFirstGameData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
         ModelAndView mav = new ModelAndView("game1");
-        mav.addObject("description", "First thing you need to do is go to...");
+        mav.addObject("actualGame", GameType.FIRST);
+        mav.addObject("description", "This is the first game");
         mav.addObject("progress", Math.floor(Math.random() * 100));
         return mav;
     }
@@ -22,8 +31,18 @@ public class GameController {
     @GetMapping("/game2")
     public ModelAndView getSecondGameData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
         ModelAndView mav = new ModelAndView("game2");
-        mav.addObject("description", "First thing you need to get is..");
+        mav.addObject("actualGame", GameType.SECOND);
+        mav.addObject("description", "This is the second game");
         mav.addObject("progress", Math.floor(Math.random() * 100));
         return mav;
+    }
+
+    @RequestMapping(value="/api/gamestate", method=RequestMethod.GET)
+    @ResponseBody
+    public List<String> getGameState() {
+        List<String> completed = new ArrayList<>();
+        completed.add(SoulsStone.TIME.toString().toLowerCase());
+        completed.add(SoulsStone.MIND.toString().toLowerCase());
+        return completed;
     }
 }

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="includes :: header"></head>
 <body>
-<div th:fragment="content" class="row">
-    <p href="#" th:text="'Leiras:' + ${description}">Title ...</p>
-    <p href="#" th:text="'Jelenlegi allas:' + ${progress}">Title ...</p>
-</div>
+<div th:replace="includes :: background"></div>
+<div th:fragment="content">
+    <div class="flex-container">
+        <div class="column" style="flex-grow: 1">
+            <div th:replace="includes :: menu">
+
+            </div>
+            <div class="row flex-item">
+                <p class="white-text" href="#" th:text="'Leiras:' + ${description}">Title ...</p>
+                <p class="white-text" href="#" th:text="'Jelenlegi allas:' + ${progress}">Title ...</p></div>
+            </div>
+    </div>
 </body>
 </html>

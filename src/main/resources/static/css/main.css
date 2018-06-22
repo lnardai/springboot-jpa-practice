@@ -1,17 +1,23 @@
 html, body {
     height: 100%;
-    color: white;
 }
 
 body {
     margin: 0;
 }
 
+.white-text{
+    color: white;
+}
+
+canvas#viewport {
+    border: 1px solid white;
+}
 
 .flex-container {
     height: 100%;
-    padding: 0;
-    margin: 0;
+    padding: 5px;
+    margin: 5px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -20,10 +26,13 @@ body {
     justify-content: center;
 }
 
-.logout-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+.flex-item {
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    justify-content: center
 }
 
 /*Starwars theme*/
@@ -75,4 +84,24 @@ body {
 @keyframes scroll {
     0% { top: 100%; }
     100% { top: -170%; }
+}
+
+.notcompleted{
+    filter: grayscale(100%) blur(5px) opacity(50%)
+}
+
+.infinity-stone-medium {
+    height: 100px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px -10px #f45042;
+    }
+    to {
+        box-shadow: 0 0 10px 10px #fc6c5f;
+    }
 }
