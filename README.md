@@ -22,3 +22,9 @@ Other process should start a Spring container
 ```
 gradle bootRun
 ```
+
+To deploy to appengine use:
+
+```
+./gradlew appengineDeploy
+```

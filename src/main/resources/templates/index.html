@@ -11,7 +11,9 @@
         <div class="row flex-item">
             <h3 class="text-center text-white">Udv Kicsiparany!</h3>
         </div>
-
+        <div class="row flex-item">
+            <a class="btn btn-dark" href="/intro" role="button"> Intro</a>
+        </div>
         <div class="row flex-item">
             <div class="column">
                 <img class="infinity-stone-medium" th:classappend="${!completed.contains('mind')}?notcompleted" src="css/images/mind-stone.png"/>
@@ -32,7 +34,8 @@
                 <img class="infinity-stone-medium" th:classappend="${!completed.contains('time')}?notcompleted" src="css/images/time-stone.png"/>
             </div>
             <div class="column">
-                <img class="infinity-stone-medium infinity-stone-reality" th:classappend="${!completed.contains('reality')}?notcompleted" src="css/images/reality-stone.png"/>
+                <img class="infinity-stone-medium infinity-stone-reality" th:classappend="${!completed.contains('reality')}?notcompleted"
+                     src="css/images/reality-stone.png"/>
             </div>
         </div>
 
