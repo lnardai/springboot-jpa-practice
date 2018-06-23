@@ -1,4 +1,4 @@
-package com.nardai.practice.controller;
+package com.nardai.practice.controller.game;
 
 
 import org.springframework.stereotype.Controller;
@@ -11,9 +11,9 @@ import com.nardai.practice.WrongAnswerException;
 
 @Controller
 @RequestMapping("/")
-public class MindController {
+public class SoulController {
 
-    @RequestMapping(value="/mind/answer/1", method=RequestMethod.POST)
+    @RequestMapping(value="/soul/answer/1", method=RequestMethod.POST)
     @ResponseBody
     public String getFirstGameData(@RequestParam(name="answer") String name) {
         if(name.equals("Laci")){

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.nardai.practice.model.GameType;
 import com.nardai.practice.model.SoulsStone;
 
 @Controller
@@ -20,18 +19,54 @@ import com.nardai.practice.model.SoulsStone;
 public class GameController {
 
     @GetMapping("/game1")
-    public ModelAndView getFirstGameData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+    public ModelAndView getMindGameData() {
         ModelAndView mav = new ModelAndView("game1");
-        mav.addObject("actualGame", GameType.FIRST);
+        mav.addObject("actualGame", SoulsStone.MIND);
         mav.addObject("description", "This is the first game");
         mav.addObject("progress", Math.floor(Math.random() * 100));
         return mav;
     }
 
     @GetMapping("/game2")
-    public ModelAndView getSecondGameData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+    public ModelAndView getSpaceGameData() {
         ModelAndView mav = new ModelAndView("game2");
-        mav.addObject("actualGame", GameType.SECOND);
+        mav.addObject("actualGame", SoulsStone.SPACE);
+        mav.addObject("description", "This is the second game");
+        mav.addObject("progress", Math.floor(Math.random() * 100));
+        return mav;
+    }
+
+    @GetMapping("/game3")
+    public ModelAndView getPowerGameData() {
+        ModelAndView mav = new ModelAndView("game3");
+        mav.addObject("actualGame", SoulsStone.POWER);
+        mav.addObject("description", "This is the second game");
+        mav.addObject("progress", Math.floor(Math.random() * 100));
+        return mav;
+    }
+
+    @GetMapping("/game4")
+    public ModelAndView getRealityGameData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+        ModelAndView mav = new ModelAndView("game4");
+        mav.addObject("actualGame", SoulsStone.REALITY);
+        mav.addObject("description", "This is the second game");
+        mav.addObject("progress", Math.floor(Math.random() * 100));
+        return mav;
+    }
+
+    @GetMapping("/game5")
+    public ModelAndView getTimeGameData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+        ModelAndView mav = new ModelAndView("game5");
+        mav.addObject("actualGame", SoulsStone.TIME);
+        mav.addObject("description", "This is the second game");
+        mav.addObject("progress", Math.floor(Math.random() * 100));
+        return mav;
+    }
+
+    @GetMapping("/game6")
+    public ModelAndView getSecondGameData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+        ModelAndView mav = new ModelAndView("game6");
+        mav.addObject("actualGame", SoulsStone.SOUL);
         mav.addObject("description", "This is the second game");
         mav.addObject("progress", Math.floor(Math.random() * 100));
         return mav;

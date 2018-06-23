@@ -29,23 +29,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item" th:classappend="${actualGame.toString().equals('FIRST')}?active" >
-                    <a class="nav-link" href="/game1">Game1</a>
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('MIND')}?active" >
+                    <a class="nav-link" href="/game1">Mind</a>
                 </li>
-                <li class="nav-item" th:classappend="${actualGame.toString().equals('SECOND')}?active" >
-                    <a class="nav-link" href="/game2">Game2</a>
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('SPACE')}?active" >
+                    <a class="nav-link" href="/game2">Space</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/game3">Game3</a>
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('POWER')}?active">
+                    <a class="nav-link" href="/game3">Power</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/game4">Game4</a>
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('REALITY')}?active">
+                    <a class="nav-link" href="/game4">Reality</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/game4">Game5</a>
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('TIME')}?active">
+                    <a class="nav-link" href="/game5">Time</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/game4">Game6</a>
+                <li class="nav-item" th:classappend="${actualGame.toString().equals('SOUL')}?active">
+                    <a class="nav-link" href="/game6">Soul</a>
                 </li>
             </ul>
         </div>
