@@ -10,10 +10,19 @@
             <div th:replace="includes :: menu">
 
             </div>
-            <div class="row flex-item">
+            <div class="row">
                 <p class="white-text" href="#" th:text="'Leiras:' + ${description}">Title ...</p>
                 <p class="white-text" href="#" th:text="'Jelenlegi allas:' + ${progress}">Title ...</p></div>
+            <form id="mindq1">
+                <div class="form-group">
+                    <label class="white-text">Mi a legnagyobb felelmem?</label>
+                    <input type="text" name="answer" class="form-control" id="answer" placeholder="Valasz">
+                </div>
+                <button type="submit" class="btn btn-primary">Kuldes</button>
+                <span class="error-info-box" id="errorResult"></span>
+            </form>
             </div>
     </div>
+</div>
 </body>
 </html>

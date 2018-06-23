@@ -96,6 +96,9 @@ canvas#viewport {
     border-radius: 50%;
 }
 
+.error-info-box{
+    color: red;
+}
 
 @keyframes glow {
     from {
