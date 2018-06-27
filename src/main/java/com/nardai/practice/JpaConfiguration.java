@@ -13,10 +13,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import com.nardai.practice.star.system.StarRepository;
-
 @Configuration
-@EnableJpaRepositories(basePackageClasses = StarRepository.class)
+@EnableJpaRepositories(basePackages = "com.nardai.practice")
 public class JpaConfiguration {
 	@Bean
 	public DataSource dataSource() {

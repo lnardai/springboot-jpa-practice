@@ -1,9 +1,8 @@
 spring:
   datasource:
-    url: jdbc:h2:file:~/test
-    username: dbuser
-    password: dbpass
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://google/${database}?useSSL=false&amp;socketFactoryArg=${INSTANCE_CONNECTION_NAME}&amp;socketFactory=com.google.cloud.sql.postgres.SocketFactory&amp;user=${user}&amp;password=${password}
+    driver-class-name: com.mysql.jdbc.Driver
+    continueOnError: true
   h2:
     console:
       enabled: true
