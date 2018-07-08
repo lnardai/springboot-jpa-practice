@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/")
-class MindController @Autowired constructor(private val service : MindService) {
+class MindController constructor(@Autowired private val service : MindService) {
 
     @RequestMapping(value = "/mind/answer/1", method = arrayOf(RequestMethod.POST))
     @ResponseBody

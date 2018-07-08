@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component
 
 
 @Component
-class MindService @Autowired constructor(private val mindAnswerRepository : MindAnswerRepository){
-
+class MindService constructor(@Autowired private val mindAnswerRepository : MindAnswerRepository){
 
     fun addAnswer(answer: Answer){
         mindAnswerRepository.save(answer)

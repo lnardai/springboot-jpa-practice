@@ -9,7 +9,7 @@
 <div class="flex-container login-box">
     <form class="row" name="f" th:action="@{/login}" method="post">
         <fieldset>
-            <legend>Please Login Paresu</legend>
+            <legend class="white-text">Please Login Paresu</legend>
             <div th:if="${param.error}" class="alert alert-error">
                 Invalid username and password.
             </div>
@@ -17,11 +17,11 @@
                 You have been logged out.
             </div>
             <div>
-                <label for="username">Username</label>
+                <label class="white-text" for="username">Username</label>
                 <input type="text" id="username" name="username"/>
             </div>
             <div>
-                <label for="password">Password</label>
+                <label class="white-text" for="password">Password</label>
                 <input type="password" id="password" name="password"/>
             </div>
             <div class="form-actions">
