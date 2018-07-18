@@ -52,6 +52,7 @@ test {
 dependencies {
   compile('org.springframework.boot:spring-boot-devtools')
   compile('org.springframework.boot:spring-boot-starter-web')
+  compile('org.springframework.boot:spring-boot-actuator')
   compile('org.springframework.boot:spring-boot-starter-security')
   compile("org.springframework.boot:spring-boot-starter-data-jpa")
 

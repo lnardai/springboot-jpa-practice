@@ -1,6 +1,7 @@
 package com.nardai.practice.controller.game
 
-import com.nardai.practice.model.Answer
+import com.nardai.practice.model.Exercise
+import com.nardai.practice.model.SoulsStone
 import com.nardai.practice.repository.MindAnswerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -9,12 +10,19 @@ import org.springframework.stereotype.Component
 @Component
 class MindService constructor(@Autowired private val mindAnswerRepository : MindAnswerRepository){
 
-    fun addAnswer(answer: Answer){
-        mindAnswerRepository.save(answer)
+    fun addAExercise(id: Long, answer: String){
+        var exercise: Exercise = mindAnswerRepository.findById(id).get()
+        if(exercise.correctAnswer.equals(answer)){
+            exercise.providedAnswer = answer;
+        }
+        mindAnswerRepository.save(exercise)
     }
 
-    fun getAllAnswers() : List<Answer> {
+    fun getAllAnswers() : List<Exercise> {
         return mindAnswerRepository.findAll()
     }
 
+    fun findAllByType() : List<Exercise> {
+        return mindAnswerRepository.findAllByType(SoulsStone.MIND)
+    }
 }

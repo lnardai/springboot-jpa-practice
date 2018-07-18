@@ -1,13 +1,19 @@
 package com.nardai.practice.repository
 
-import com.nardai.practice.model.Answer
+import com.nardai.practice.model.Exercise
+import com.nardai.practice.model.SoulsStone
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
+import java.util.*
 
 @Repository
-interface MindAnswerRepository : CrudRepository<Answer, Long> {
+interface MindAnswerRepository : CrudRepository<Exercise, Long> {
 
-    override fun findAll(): List<Answer>
+    override fun findAll(): List<Exercise>
 
-    fun save(persisted: Answer): Answer
+    override fun findById(id: Long?): Optional<Exercise>
+
+    fun findAllByType(type: SoulsStone): List<Exercise>
+
+    fun save(persisted: Exercise): Exercise
 }

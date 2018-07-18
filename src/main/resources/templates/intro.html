@@ -4,11 +4,13 @@
 
     <script>
         $(document).ready(function() {
-            var timer = setTimeout(function() {
 
+            var timer = setTimeout(function() {
             window.location=window.location.protocol + "//" + window.location.host + "/index"
         }, 90000); });
     </script>
+
+<a id="skip-intro" class="btn btn-dark" href="/index" onClick="" role="button">Skip Intro</a>
 
 <div th:replace="includes :: background"></div>
     <audio loop="loop" autoplay="autoplay">
