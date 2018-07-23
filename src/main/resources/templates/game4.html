@@ -2,6 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="includes :: header"></head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var deadline = new Date(Date.parse("9/03/2018"));
+        initializeClock('clockdiv', deadline);
+    });
+</script>
 <body>
 <div th:replace="includes :: background"></div>
 <div th:fragment="content">
@@ -11,18 +17,9 @@
 
             </div>
             <h2 class="row flex-item white-text" th:text="${actualGame}"></h2>
-            <div class="row">
-                <p class="white-text" href="#" th:text="'Leiras:' + ${description}">Title ...</p>
-                <p class="white-text" href="#" th:text="'Jelenlegi allas:' + ${progress}">Title ...</p></div>
-            <form id="mindq1">
-                <div class="form-group">
-                    <label class="white-text">Mi a legnagyobb felelmem?</label>
-                    <input type="text" name="exercise" class="form-control" id="exercise" placeholder="Valasz">
-                </div>
-                <button type="submit" class="btn btn-primary">Kuldes</button>
-                <span class="error-info-box" id="errorResult"></span>
-            </form>
-            </div>
+            <div th:replace="includes :: countdown"></div>
+
+        </div>
     </div>
 </div>
 </body>

@@ -3,6 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="includes :: header"></head>
 <script src="js/mind-function.js" type="text/javascript"></script>
+
 <body>
 <div th:replace="includes :: background"></div>
 <div th:fragment="content">
@@ -13,6 +14,7 @@
             </div>
             <h2 class="row flex-item white-text" th:text="${actualGame}"></h2>
     </div>
+</div>
 </div>
 </body>
 </html>
