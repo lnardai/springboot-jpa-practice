@@ -2,6 +2,7 @@ package com.nardai.practice.controller;
 
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nardai.practice.model.Exercise;
 import com.nardai.practice.model.SoulsStone;
-import com.nardai.practice.service.SettingsService;
+import com.nardai.practice.repository.ExerciseRepository;
 
 @Controller
 @RequestMapping("/")
 public class GameController {
 
     @Autowired
-    private SettingsService settingsService;
+    private ExerciseRepository exerciseRepository;
+
 
     @GetMapping("/game1")
     public ModelAndView getMindGameData() {
@@ -81,8 +84,24 @@ public class GameController {
     @ResponseBody
     public List<String> getGameState() {
         List<String> completed = new ArrayList<>();
-        completed.add(SoulsStone.TIME.toString().toLowerCase());
-        completed.add(SoulsStone.MIND.toString().toLowerCase());
+        EnumSet.allOf(SoulsStone.class)
+                .forEach(type -> {
+                    List<Exercise> mindExercises = exerciseRepository.findAllByType(type);
+                    calculatedCompleted(mindExercises, completed);
+                });
+
         return completed;
     }
+
+
+    private void calculatedCompleted(List<Exercise> exercises, List<String> completed){
+        if(!exercises.isEmpty() && !findNotAnswered(exercises)){
+            completed.add(exercises.get(0).getType().toString());
+        }
+    }
+
+    private boolean findNotAnswered(List<Exercise> exercises) {
+        return exercises.stream().filter(e -> !e.getAnswered()).findAny().isPresent();
+    }
+
 }

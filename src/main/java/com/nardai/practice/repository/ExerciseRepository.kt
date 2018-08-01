@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface MindAnswerRepository : CrudRepository<Exercise, Long> {
+interface ExerciseRepository : CrudRepository<Exercise, Long> {
 
     override fun findAll(): List<Exercise>
 

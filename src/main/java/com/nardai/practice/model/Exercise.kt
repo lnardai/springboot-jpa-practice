@@ -13,6 +13,7 @@ data class Exercise(@Id
                 val imageUrl: String = "",
                 val correctAnswer: String = "N/A",
                 var providedAnswer: String = "No answer provided",
+                var answered: Boolean = false,
                 val type: SoulsStone,
                 val hint: String = "N/A")
 
