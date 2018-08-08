@@ -10,7 +10,7 @@ class MindController constructor(@Autowired private val service : MindService) {
 
     @RequestMapping(value = "/mind/answer/{id}", method = arrayOf(RequestMethod.POST))
     @ResponseBody
-    fun getExactStar(@PathVariable("id") id: Long, answer : String){
+    fun getExactStar(@PathVariable("id") id: Long, answer : String) : Exercise{
         return service.addAExercise(id, answer);
     }
 

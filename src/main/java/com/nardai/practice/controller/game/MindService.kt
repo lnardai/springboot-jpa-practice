@@ -11,14 +11,16 @@ import org.springframework.stereotype.Component
 @Component
 class MindService constructor(@Autowired private val exerciseRepository : ExerciseRepository){
 
-    fun addAExercise(id: Long, answer: String){
+    fun addAExercise(id: Long, answer: String) : Exercise {
         var exercise: Exercise = exerciseRepository.findById(id).get()
         if(exercise.correctAnswer.equals(answer)){
             exercise.providedAnswer = answer
             exercise.answered = true
             exerciseRepository.save(exercise)
+            return exercise;
+        } else{
+            throw WrongAnswerException("Answer did not match")
         }
-        throw WrongAnswerException("Answer did not match")
     }
 
     fun getAllAnswers() : List<Exercise> {
