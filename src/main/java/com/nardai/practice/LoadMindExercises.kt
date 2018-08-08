@@ -16,8 +16,17 @@ open class LoadMindExercises constructor(@Autowired private val exerciseReposito
         val list : MutableList<Exercise> = ArrayList()
         list.add(
                 Exercise(
-                question = "Mi a nyero lepes az alabbi kepen?",
-                correctAnswer = "e4-e5",
+                        question = "Mit mond az alabbi jelenetben pontosan Palpatine Senator?",
+                        imageUrl= "/images/palpatine-senator.png",
+                        hint= "Ekezetek nem szamitanak!",
+                        correctAnswer = "es meg soha, soha nem voltam ilyen eltokelt",
+                        type = SoulsStone.MIND ))
+        list.add(
+                Exercise(
+                question = "Nyero 2 lepesbol, mik helyes lepesek? Valaszt vesszovel elvalasztva add meg.",
+                hint= "Chess notation: https://en.wikipedia.org/wiki/Chess_notation",
+                imageUrl= "/images/chess-problem.png",
+                correctAnswer = "Qxh7,Rg8#",
                 type = SoulsStone.MIND ))
 
         list.forEach{e -> exerciseRepository.save(e)}

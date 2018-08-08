@@ -35,6 +35,15 @@ canvas#viewport {
     justify-content: center
 }
 
+.flex-question-item {
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: left;
+    justify-content: left
+}
+
 /*Starwars theme*/
 #titles{
     position: absolute;
@@ -197,4 +206,19 @@ Custom media queries
 .smalltext{
     padding-top: 5px;
     font-size: 16px;
+}
+
+
+.question-img-box{
+    max-width: 500px;
+}
+
+.hint-box-text{
+    font-size: x-small;
+    color: lightgrey;
+}
+
+.answered-check{
+    color: greenyellow;
+    font-size: 1.5em;
 }

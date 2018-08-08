@@ -1,5 +1,6 @@
 package com.nardai.practice.controller.game
 
+import com.nardai.practice.controller.WrongAnswerException
 import com.nardai.practice.model.Exercise
 import com.nardai.practice.model.SoulsStone
 import com.nardai.practice.repository.ExerciseRepository
@@ -15,8 +16,9 @@ class MindService constructor(@Autowired private val exerciseRepository : Exerci
         if(exercise.correctAnswer.equals(answer)){
             exercise.providedAnswer = answer
             exercise.answered = true
+            exerciseRepository.save(exercise)
         }
-        exerciseRepository.save(exercise)
+        throw WrongAnswerException("Answer did not match")
     }
 
     fun getAllAnswers() : List<Exercise> {
