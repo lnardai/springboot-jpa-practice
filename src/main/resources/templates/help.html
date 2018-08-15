@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="includes :: header"></head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var deadline = new Date(Date.parse("10/04/2018"));
+        initializeClock('clockdiv', deadline);
+    });
+</script>
+<body>
+<div th:replace="includes :: background"></div>
+<div th:fragment="content">
+    <div class="flex-container">
+        <div class="column" style="flex-grow: 1">
+            <div th:replace="includes :: menu">
+
+            </div>
+            <h2 class="row flex-item white-text">Segítség</h2>
+            <div class="row flex-help-item white-text-small">
+                <i class="fas fa-qrcode question-qr-type" style="margin-right: 15px"></i>
+                <p class="white-text-small">Meg kell találnod egy QR kódot, az fogja megadni a megoldást amit be kell írnod.</p>
+            </div>
+            <div class="row flex-help-item">
+                <i class="fas fa-map-marked-alt question-quest-type" style="margin-right: 15px"></i>
+                <p class="white-text-small">Quest! El kell menned, csinálnod valamit, legtöbbször közösen, és a végén tőlem tudod meg a megoldást.</p>
+            </div>
+            <div class="row flex-help-item">
+                <i class="fas fa-map-marked-alt question-type" style="margin-right: 15px"></i>
+                <p class="white-text-small">Meg kell válaszolnod a kérdést. Segítséget itt is lehet kérni.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

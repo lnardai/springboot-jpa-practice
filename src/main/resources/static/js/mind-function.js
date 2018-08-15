@@ -34,7 +34,10 @@ $( document ).ready(function() {
 
         var header = $("<div>" , {style: "width : 100%;"});
         var question = $("<label>", {class: "white-text"});
+        var icon = generateType(exercise)
+
         question.text(exercise.question);
+        header.append(icon);
         header.append(question);
 
         var hintBox = $("<div>", {style: "width : 100%;"});
@@ -42,12 +45,14 @@ $( document ).ready(function() {
         hint.html(urlify(exercise.hint));
         hintBox.append(hint)
 
-        var imgBox = $("<div>", {style: "width : 100%;"});
-        var img = $("<img>", {class: "question-img-box", src: exercise.imageUrl});
-        imgBox.append(img)
+        if(exercise.imageUrl !== ""){
+            var imgBox = $("<div>", {style: "width : 100%;"});
+            var img = $("<img>", {class: "question-img-box", src: exercise.imageUrl});
+            imgBox.append(img)
+        }
 
 
-        var footer = $("<div>", {id: "footer"+exercise.id});
+        var footer = $("<div>", {id: "footer"+exercise.id, class: "question-footer"});
 
         createFooter(footer, exercise);
 
@@ -59,10 +64,20 @@ $( document ).ready(function() {
         return $questionBox;
     }
 
+    function generateType(exercice){
+        if(exercice.exerciseType === "QUEST"){
+            return $("<i>", {class: "fas fa-map-marked-alt question-quest-type"});
+        }
+        if(exercice.exerciseType === "FIND_QR"){
+            return $("<i>", {class: "fas fa-qrcode question-qr-type"});
+        }
+        return $("<i>", {class: "fas fa-question question-type"});
+    }
+
     function createFooter(footer, exercise) {
-        var inputField = $("<input>", {type: "text", name: "answer"});
-        var submitButton = $("<button>", {class: "btn btn-primary"});
-        submitButton.text("Kuldes");
+        var inputField = $("<input>", {type: "text", name: "answer", class: "question-input"});
+        var submitButton = $("<button>", {class: "btn btn-dark question-submit-btn"});
+        submitButton.text("Küldés");
 
         var errorSpan = $("<span>", {class: "error-info-box", id: "errorResult" + exercise.id});
 

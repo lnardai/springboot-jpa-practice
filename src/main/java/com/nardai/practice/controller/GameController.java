@@ -1,9 +1,7 @@
 package com.nardai.practice.controller;
 
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.nardai.practice.model.Exercise;
 import com.nardai.practice.model.SoulsStone;
 import com.nardai.practice.repository.ExerciseRepository;
 
@@ -24,6 +21,9 @@ public class GameController {
 
     @Autowired
     private ExerciseRepository exerciseRepository;
+
+    @Autowired
+    private GameService gameService;
 
 
     @GetMapping("/game1")
@@ -80,28 +80,20 @@ public class GameController {
         return mav;
     }
 
+    @GetMapping("/help")
+    public ModelAndView getHelpData(@RequestParam(name="name", required=false, defaultValue="World") String name) {
+        ModelAndView mav = new ModelAndView("help");
+        mav.addObject("helpActive", true);
+        mav.addObject("actualGame", "");
+        mav.addObject("description", "This is the second game");
+        mav.addObject("progress", Math.floor(Math.random() * 100));
+        return mav;
+    }
+
     @RequestMapping(value="/api/gamestate", method=RequestMethod.GET)
     @ResponseBody
-    public List<String> getGameState() {
-        List<String> completed = new ArrayList<>();
-        EnumSet.allOf(SoulsStone.class)
-                .forEach(type -> {
-                    List<Exercise> mindExercises = exerciseRepository.findAllByType(type);
-                    calculatedCompleted(mindExercises, completed);
-                });
-
-        return completed;
-    }
-
-
-    private void calculatedCompleted(List<Exercise> exercises, List<String> completed){
-        if(!exercises.isEmpty() && !findNotAnswered(exercises)){
-            completed.add(exercises.get(0).getType().toString());
-        }
-    }
-
-    private boolean findNotAnswered(List<Exercise> exercises) {
-        return exercises.stream().filter(e -> !e.getAnswered()).findAny().isPresent();
+    public Map<String, Integer> getGameState() {
+        return gameService.getGameState();
     }
 
 }

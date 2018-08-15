@@ -53,6 +53,10 @@
                 <li class="nav-item" th:classappend="${actualGame.toString().equals('SOUL')}?active">
                     <a class="nav-link" href="/game6">Soul</a>
                 </li>
+                <div class="dropdown-divider"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="/help" th:classappend="${helpActive}?active">Help</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
@@ -90,25 +94,25 @@
 
 <div th:fragment="countdown">
     <div class="row flex-item">
-        <h1>Kezdesi ido</h1>
+        <h1>Kezdési idő</h1>
     </div>
     <div class="row flex-item">
         <div id="clockdiv">
             <div>
                 <span class="days"></span>
-                <div class="smalltext">Days</div>
+                <div class="smalltext">Napok</div>
             </div>
             <div>
                 <span class="hours"></span>
-                <div class="smalltext">Hours</div>
+                <div class="smalltext">Órák</div>
             </div>
             <div>
                 <span class="minutes"></span>
-                <div class="smalltext">Minutes</div>
+                <div class="smalltext">Percek</div>
             </div>
             <div>
                 <span class="seconds"></span>
-                <div class="smalltext">Seconds</div>
+                <div class="smalltext">Másodpercek</div>
             </div>
         </div>
     </div>

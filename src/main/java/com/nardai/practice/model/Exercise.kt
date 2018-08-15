@@ -16,5 +16,6 @@ data class Exercise(@Id
                     var providedAnswer: String = "No answer provided",
                     var answered: Boolean = false,
                     val type: SoulsStone,
+                    val exerciseType: ExerciseType = ExerciseType.ANSWER,
                     val hint: String = "N/A")
 

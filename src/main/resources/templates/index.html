@@ -9,32 +9,34 @@
         <div th:replace="includes :: menu"></div>
 
         <div class="row flex-item">
-            <h3 class="text-center text-white">Udv Kicsiparany!</h3>
+            <h3 class="text-center text-white">Üdv Kicsiparány!</h3>
         </div>
         <div class="row flex-item">
             <a class="btn btn-dark" href="/intro" role="button"> Intro</a>
         </div>
         <div class="row flex-item">
-            <div class="column">
-                <img class="infinity-stone-medium" th:classappend="${!completed.contains('mind')}?notcompleted" src="css/images/mind-stone.png"/>
+            <div class="column" style="position: relative">
+                <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('mind')}?notcompleted" src="css/images/mind-stone.png"/>
+                <div class="centered-img-text" th:text="${completed.get('mind')} ?: ''"></div>
+            </div>
+            <div class="column" style="position: relative">
+                <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('power')}?notcompleted" src="css/images/power-stone.png"/>
+                <!--<div class="centered-img-text" th:text="${completed.get('power')} ?: ''"></div>-->
             </div>
             <div class="column">
-                <img class="infinity-stone-medium" th:classappend="${!completed.contains('power')}?notcompleted" src="css/images/power-stone.png"/>
-            </div>
-            <div class="column">
-                <img class="infinity-stone-medium" th:classappend="${!completed.contains('souls')}?notcompleted" src="css/images/souls-stone.png"/>
+                <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('souls')}?notcompleted" src="css/images/souls-stone.png"/>
             </div>
         </div>
 
         <div class="row flex-item">
             <div class="column">
-                <img class="infinity-stone-medium" th:classappend="${!completed.contains('space')}?notcompleted" src="css/images/space-stone.png"/>
+                <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('space')}?notcompleted" src="css/images/space-stone.png"/>
             </div>
             <div class="column">
-                <img class="infinity-stone-medium" th:classappend="${!completed.contains('time')}?notcompleted" src="css/images/time-stone.png"/>
+                <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('time')}?notcompleted" src="css/images/time-stone.png"/>
             </div>
             <div class="column">
-                <img class="infinity-stone-medium infinity-stone-reality" th:classappend="${!completed.contains('reality')}?notcompleted"
+                <img class="infinity-stone-medium infinity-stone-reality" th:classappend="${!completed.containsKey('reality')}?notcompleted"
                      src="css/images/reality-stone.png"/>
             </div>
         </div>

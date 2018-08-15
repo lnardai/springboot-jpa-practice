@@ -15,7 +15,7 @@ class SettingsService (@Autowired private val settingsRepository: SettingsReposi
     }
 
     fun getSettingByName(key: String) : Setting? {
-        return settingsRepository.findByKey(key).firstOrNull();
+        return settingsRepository.findAll().firstOrNull{ a -> a.key.equals(key)}
     }
 
 }

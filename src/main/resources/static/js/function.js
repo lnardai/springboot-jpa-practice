@@ -19,8 +19,6 @@ function urlify(text) {
     return text.replace(urlRegex, function(url) {
         return '<a target="_blank" href="' + url + '">' + url + '</a>';
     })
-    // or alternatively
-    // return text.replace(urlRegex, '<a href="$1">$1</a>')
 }
 
 function initializeClock(id, endtime) {
@@ -56,10 +54,10 @@ $( document ).ready(function() {
            data: $("#mindq1").serialize(), // serializes the form's elements.
            success: function (data) {
                if (data) {
-                   console.log("settings arrived", data);
+                   window.location = "/intro"
                }
                else{
-                   window.location = "/intro"
+                   console.log("settings arrived", data);
                }
            },
            error: function (data) {
