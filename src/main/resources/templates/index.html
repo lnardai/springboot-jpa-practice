@@ -21,23 +21,27 @@
             </div>
             <div class="column" style="position: relative">
                 <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('power')}?notcompleted" src="css/images/power-stone.png"/>
-                <!--<div class="centered-img-text" th:text="${completed.get('power')} ?: ''"></div>-->
+                <div class="centered-img-text" th:text="${completed.get('power')} ?: ''"></div>
             </div>
-            <div class="column">
+            <div class="column" style="position: relative">
                 <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('souls')}?notcompleted" src="css/images/souls-stone.png"/>
+                <div class="centered-img-text" th:text="${completed.get('souls')} ?: ''"></div>
             </div>
         </div>
 
-        <div class="row flex-item">
-            <div class="column">
+        <div class="row flex-item" >
+            <div class="column" style="position: relative">
                 <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('space')}?notcompleted" src="css/images/space-stone.png"/>
+                <div class="centered-img-text" th:text="${completed.get('space')} ?: ''"></div>
             </div>
-            <div class="column">
+            <div class="column" style="position: relative">
                 <img class="infinity-stone-medium" th:classappend="${!completed.containsKey('time')}?notcompleted" src="css/images/time-stone.png"/>
+                <div class="centered-img-text" th:text="${completed.get('time')} ?: ''"></div>
             </div>
-            <div class="column">
+            <div class="column" style="position: relative">
                 <img class="infinity-stone-medium infinity-stone-reality" th:classappend="${!completed.containsKey('reality')}?notcompleted"
                      src="css/images/reality-stone.png"/>
+                <div class="centered-img-text" th:text="${completed.get('reality')} ?: ''"></div>
             </div>
         </div>
 

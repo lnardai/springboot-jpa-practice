@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/mind")
-class MindController constructor(@Autowired private val service : GameExerciseService) {
+@RequestMapping("/space")
+class SpaceController constructor(@Autowired private val service : GameExerciseService) {
 
     @RequestMapping(value = "/answer/{id}", method = arrayOf(RequestMethod.POST))
     @ResponseBody
@@ -18,7 +18,7 @@ class MindController constructor(@Autowired private val service : GameExerciseSe
     @RequestMapping(value = "/questions", method = arrayOf(RequestMethod.GET))
     @ResponseBody
     fun getAllAnswers(): List<Exercise>{
-        return service.findAllByType(SoulsStone.MIND);
+        return service.findAllByType(SoulsStone.SPACE);
     }
 
 }

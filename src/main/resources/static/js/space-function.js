@@ -1,7 +1,7 @@
 
 $( document ).ready(function() {
 
-    var url = "/mind/questions"; // the script where you handle the form input.
+    var url = "/space/questions"; // the script where you handle the form input.
     $.ajax({
         type: "GET",
         url: url,

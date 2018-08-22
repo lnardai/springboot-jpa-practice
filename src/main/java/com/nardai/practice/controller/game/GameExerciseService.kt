@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 
 
 @Component
-class MindService constructor(@Autowired private val exerciseRepository : ExerciseRepository){
+class GameExerciseService constructor(@Autowired private val exerciseRepository : ExerciseRepository){
 
     fun addAExercise(id: Long, answer: String) : Exercise {
         var exercise: Exercise = exerciseRepository.findById(id).get()
@@ -27,7 +27,7 @@ class MindService constructor(@Autowired private val exerciseRepository : Exerci
         return exerciseRepository.findAll()
     }
 
-    fun findAllByType() : List<Exercise> {
-        return exerciseRepository.findAllByType(SoulsStone.MIND)
+    fun findAllByType(type : SoulsStone) : List<Exercise> {
+        return exerciseRepository.findAllByType(type)
     }
 }
