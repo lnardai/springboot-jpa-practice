@@ -2,12 +2,13 @@ package com.nardai.practice.model;
 
 public enum SoulsStone {
 
-    MIND(13),
-    REALITY(39),
-    SOUL(60),
-    SPACE(21),
-    TIME(32),
-    POWER(5);
+    //-minus2,minus3, backwards
+    MIND(11),
+    REALITY(37),
+    SOUL(58),
+    SPACE(18),
+    TIME(29),
+    POWER(2);
 
     private final int value;
 
