@@ -10,7 +10,7 @@ import javax.persistence.Id
 data class Exercise(@Id
                 @GeneratedValue(strategy = GenerationType.AUTO)
                 val id: Long = 0,
-                    val question: String = "N/A",
+                    var question: String = "N/A",
                     val imageUrl: String = "",
                     @JsonIgnore val correctAnswer: String = "N/A",
                     var providedAnswer: String = "No answer provided",
