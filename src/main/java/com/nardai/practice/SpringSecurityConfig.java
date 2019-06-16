@@ -1,8 +1,10 @@
 package com.nardai.practice;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,7 +15,14 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 
 @EnableWebSecurity
 @EnableAspectJAutoProxy
+@PropertySource("classpath:secrets.properties")
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Value("${users.username}")
+    private String username;
+
+    @Value("${users.password}")
+    private String password;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -44,7 +53,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().passwordEncoder(passwordEncoder())
-                .withUser("parecic").password("!HeyDelilah!").roles("USER");
+                .withUser(username).password(password).roles("USER");
     }
 
 
