@@ -25,6 +25,11 @@ gradle bootRun
 
 To deploy to appengine use:
 
+
+
 ```
+#only works with Java8
 ./gradlew appengineDeploy
 ```
+
+
